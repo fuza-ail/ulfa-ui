@@ -21,7 +21,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
     tsconfigPath(),
-    dts({ entryRoot: "src", rollupTypes: true }),
+    dts({
+      entryRoot: "src",
+      rollupTypes: true,
+      tsconfigPath: "./tsconfig.app.json",
+    }),
   ],
   build: {
     lib: {
