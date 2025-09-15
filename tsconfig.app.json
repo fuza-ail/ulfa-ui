@@ -6,6 +6,9 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "paths": {
+      "ulfa-ui": ["./src/index.ts"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
