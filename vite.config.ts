@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { resolve } from "node:path"
 import { defineConfig } from "vite"
+import dts from "vite-plugin-dts"
 import tsconfigPath from "vite-tsconfig-paths"
 
 // https://vite.dev/config/
@@ -16,7 +17,12 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [react(), tailwindcss(), tsconfigPath()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    tsconfigPath(),
+    dts({ entryRoot: "src", rollupTypes: true }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
