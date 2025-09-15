@@ -160,3 +160,7 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 }
+
+@theme {
+  --animate-spin-slow: spin 3s linear infinite;
+}

@@ -20,7 +20,7 @@ const preview: Preview = {
   },
   decorators: [
     withThemeByClassName({
-      defaultTheme: "dark",
+      defaultTheme: "light",
       themes: {
         light: "light",
         dark: "dark",
