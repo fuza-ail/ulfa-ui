@@ -1,5 +1,4 @@
 /// <reference types="vitest/config" />
-import tailwindcss from "@tailwindcss/postcss"
 import react from "@vitejs/plugin-react"
 import { resolve } from "node:path"
 import { defineConfig } from "vite"
@@ -34,24 +33,32 @@ export default defineConfig({
       formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "clsx",
+        "class-variance-authority",
+        "tailwindcss",
+        "tailwind-merge",
+      ],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "react/jsx-runtime",
-          tailwindcss: "tailwindcss",
         },
       },
     },
-    sourcemap: true,
+    minify: "esbuild",
     emptyOutDir: true,
+    sourcemap: false,
   },
-  css: {
-    postcss: {
-      plugins: [tailwindcss()],
-    },
-  },
+  // css: {
+  // postcss: {
+  // plugins: [tailwindcss()],
+  // },
+  // },
   test: {
     projects: [
       {
