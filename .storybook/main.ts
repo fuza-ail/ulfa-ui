@@ -13,5 +13,10 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  async viteFinal(config) {
+    const { default: tailwindcss } = await import("@tailwindcss/vite")
+    config.plugins?.push(tailwindcss())
+    return config
+  },
 }
 export default config
