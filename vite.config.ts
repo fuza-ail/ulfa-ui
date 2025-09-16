@@ -1,5 +1,5 @@
 /// <reference types="vitest/config" />
-import tailwindcss from "@tailwindcss/vite"
+import tailwindcss from "@tailwindcss/postcss"
 import react from "@vitejs/plugin-react"
 import { resolve } from "node:path"
 import { defineConfig } from "vite"
@@ -19,7 +19,6 @@ const dirname =
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
     tsconfigPath(),
     dts({
       entryRoot: "src",
@@ -32,6 +31,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/index.ts"),
       name: "UlfaUI",
       fileName: "ulfa-ui",
+      formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
@@ -40,8 +40,16 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "react/jsx-runtime",
+          tailwindcss: "tailwindcss",
         },
       },
+    },
+    sourcemap: true,
+    emptyOutDir: true,
+  },
+  css: {
+    postcss: {
+      plugins: [tailwindcss()],
     },
   },
   test: {
