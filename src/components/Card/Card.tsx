@@ -5,7 +5,8 @@ import { cn } from "../../libs/utils"
 const cardVariants = cva("relative rounded-xl  text-card-foreground ", {
   variants: {
     variant: {
-      default: "bg-card border border-border shadow-sm",
+      default:
+        "bg-card border border-border shadow-sm flex flex-col justify-between text-left",
       "border-glow": cn(
         "overflow-hidden shadow-sm",
         "before:content-[''] before:scale-180 before:absolute before:inset-0 before:-z-20 before:rounded-xl",
@@ -50,4 +51,22 @@ const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   }
 )
 
-export { Card, CardHeader }
+const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    return <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  }
+)
+
+const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn("flex items-center p-6 pt-0", className)}
+        {...props}
+      />
+    )
+  }
+)
+
+export { Card, CardContent, CardFooter, CardHeader }
