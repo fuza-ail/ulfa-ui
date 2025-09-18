@@ -8,9 +8,10 @@ const cardVariants = cva("relative rounded-xl  text-card-foreground ", {
       default:
         "bg-card border border-border shadow-sm flex flex-col justify-between text-left",
       "border-glow": cn(
+        "border border-primary/30",
         "overflow-hidden shadow-sm",
         "before:content-[''] before:scale-180 before:absolute before:inset-0 before:-z-20 before:rounded-xl",
-        "before:bg-[conic-gradient(at_center,var(--primary),transparent,var(--primary))]",
+        "before:bg-[conic-gradient(at_center,transparent,transparent,transparent,var(--primary))]",
         "after:content-[''] after:absolute after:inset-0  after:rounded-xl",
         "after:-z-10 after:bg-card after:m-[1px]",
         "before:animate-spin-slow"
