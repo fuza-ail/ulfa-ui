@@ -38,6 +38,7 @@ export default defineConfig({
         "class-variance-authority",
         "tailwindcss",
         "tailwind-merge",
+        "@radix-ui/react-accordion",
       ],
       output: {
         globals: {
@@ -47,6 +48,7 @@ export default defineConfig({
           clsx: "clsx",
           "class-variance-authority": "classVarianceAuthority",
           "tailwind-merge": "tailwindMerge",
+          "@radix-ui/react-accordion": "RadixAccordion",
         },
       },
     },
